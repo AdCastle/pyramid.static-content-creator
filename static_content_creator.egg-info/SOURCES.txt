@@ -5,6 +5,7 @@ development.ini
 production.ini
 setup.py
 static_content_creator/__init__.py
+static_content_creator/snapshot.py
 static_content_creator/tests.py
 static_content_creator/views.py
 static_content_creator.egg-info/PKG-INFO
@@ -18,4 +19,5 @@ static_content_creator/static/pyramid-16x16.png
 static_content_creator/static/pyramid.png
 static_content_creator/static/theme.css
 static_content_creator/static/theme.min.css
+static_content_creator/templates/manage.pt
 static_content_creator/templates/mytemplate.pt
