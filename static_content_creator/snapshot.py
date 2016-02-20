@@ -41,3 +41,6 @@ def grab_content(url):
     if not check_code(load_content):
         return None
     return load_content.read()
+
+def diff_content(url, page):
+    
