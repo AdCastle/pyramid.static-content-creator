@@ -42,5 +42,49 @@ def grab_content(url):
         return None
     return load_content.read()
 
+
+def remove_domain_from_url(domain, url):
+    if domain in url:
+        url_with_domain_removed = url.split(domain)
+        if len(url_with_domain_removed) > 1:
+            return url_with_domain_removed[1]
+    return None
+
+
+def split_url_to_path(url):
+    """
+    :param: url
+    :return: a path of the given url
+    """
+    if '/' in url:
+        url = url.rstrip('/')
+        path = url.split('/')
+        return path
+    return None
+
+
+def save_content(url, page):
+    """
+    :param url: url of page
+    :param page: content/HTML
+    :return: save content to disk
+    """
+    return None
+
+
+def read_content(url, page):
+    """
+    :param url: url of page
+    :param page: content/HTML
+    :return: read content from disk
+    """
+    return None
+
+
 def diff_content(url, page):
-    
+    """
+    :param url: url of page
+    :param page: content/HTML
+    :return: read content from disk
+    """
+    return None

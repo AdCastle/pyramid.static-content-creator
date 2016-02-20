@@ -41,3 +41,23 @@ class ViewTests(unittest.TestCase):
         broken_url = "https://www.example."
         broken_html = grab_content(broken_url)
         self.assertFalse(broken_html)
+
+    def test_remove_domain_from_url(self):
+        from snapshot import remove_domain_from_url
+        url = "https://www.example.com/path/to/file"
+        path_to_file = remove_domain_from_url("example.com/", url)
+        self.assertEqual(path_to_file, "path/to/file")
+        path_to_file = remove_domain_from_url("example.com", url)
+        self.assertEqual(path_to_file, "/path/to/file")
+
+    def test_split_url_to_path(self):
+        from snapshot import split_url_to_path
+        from snapshot import remove_domain_from_url
+        url = "https://www.example.com/path/to/file"
+        path_to_file = remove_domain_from_url("example.com/", url)
+        path = split_url_to_path(path_to_file)
+        self.assertEqual(path, ['path', 'to', 'file'])
+        url = "https://www.example.com/path/to/file/"
+        path_to_file = remove_domain_from_url("example.com/", url)
+        path = split_url_to_path(path_to_file)
+        self.assertEqual(path, ['path', 'to', 'file'])
