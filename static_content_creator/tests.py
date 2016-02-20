@@ -49,6 +49,8 @@ class ViewTests(unittest.TestCase):
         self.assertEqual(path_to_file, "path/to/file")
         path_to_file = remove_domain_from_url("example.com", url)
         self.assertEqual(path_to_file, "/path/to/file")
+        path_to_file = remove_domain_from_url("examle.com", url)
+        self.assertEqual(path_to_file, None)
 
     def test_split_url_to_path(self):
         from snapshot import split_url_to_path
@@ -61,3 +63,12 @@ class ViewTests(unittest.TestCase):
         path_to_file = remove_domain_from_url("example.com/", url)
         path = split_url_to_path(path_to_file)
         self.assertEqual(path, ['path', 'to', 'file'])
+
+    def test_does_file_exist(self):
+        from snapshot import does_file_exist
+        path = "/tmp/path/to/file"
+        file_exists = does_file_exist(path)
+        self.assertTrue(file_exists)
+        path = "/tmp/file_doesnt_exist"
+        file_doesnt_exists = does_file_exist(path)
+        self.assertFales(file_doesnt_exists)

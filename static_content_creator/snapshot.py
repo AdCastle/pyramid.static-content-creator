@@ -1,5 +1,7 @@
 import urllib2
 import logging
+import os.path
+
 log = logging.getLogger(__name__)
 
 
@@ -41,6 +43,13 @@ def grab_content(url):
     if not check_code(load_content):
         return None
     return load_content.read()
+
+
+def does_file_exist(path):
+    """
+    :param path: location of file
+    """
+    return os.path.exists(path)
 
 
 def remove_domain_from_url(domain, url):
