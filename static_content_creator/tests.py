@@ -38,3 +38,6 @@ class ViewTests(unittest.TestCase):
         url = "https://www.example.com/"
         html = grab_content(url)
         self.assertTrue("<h1>Example Domain</h1>" in html)
+        broken_url = "https://www.example."
+        broken_html = grab_content(broken_url)
+        self.assertFalse(broken_html)
